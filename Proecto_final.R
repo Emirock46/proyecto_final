@@ -22,3 +22,22 @@ leer_secuencia_manual <- function(secuencia_manual) {
 
 mi_secuencia_proteinas<-translate(mi_secuencia)
 print(mi_secuencia_proteinas)
+
+#Cuarto paso: Busqueda de secuencias conservadas en la secuencia de proteína
+motivos <- c("M", "TAAT", "DEVD", "GAG", "PEST","LIVMFYWC", "GVGG", "GGGAG")
+resultados <- lapply(motivos, function(motivos) {
+  matchPattern(motivos, mi_secuencia_proteinas)
+})
+print(resultados)
+
+
+#Quinto paso: Realizacion completa del codigo
+leer_secuencia_manual("ATGTAATGGCTGCTATCGACGTTGCAGATCGATAAG")
+mi_secuencia<- leer_secuencia_manual("ATGTAATGGCTGCTATCGACGTTGCAGATCGATAAG")
+mi_secuencia_proteinas<-translate(mi_secuencia)
+print(mi_secuencia_proteinas)
+motivos <- c("M", "TAAT", "DEVD", "GAG", "PEST","LIVMFYWC", "GVGG", "GGGAG")
+resultados <- lapply(motivos, function(motivos) {
+  matchPattern(motivos, mi_secuencia_proteinas)
+})
+print(resultados)
